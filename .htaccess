@@ -1,0 +1,15 @@
+RewriteEngine on
+
+RewriteRule ^single-product/([0-9a-zA-Z]+)$ single-product.php?id=$1 [NC,L]
+RewriteRule ^cashout/([0-9a-zA-Z]+)$ cashout.php?order_id=$1 [NC,L]
+RewriteRule ^config/bill/([0-9a-zA-Z]+)$ config/bill.php?itemId=$1 [NC,L]
+RewriteRule ^config/infomation/([0-9a-zA-Z]+)$ config/infomation.php?id=$1 [NC,L]
+RewriteRule ^config/tracker/([0-9a-zA-Z]+)$ config/tracker.php?itemId=$1 [NC,L]
+RewriteRule ^config/mpdf/printdata/([0-9a-zA-Z]+)$ config/mpdf/printdata.php?itemId=$1 [NC,L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [NC,L] 
+
+ErrorDocument 404 /thecart/error404.html
+ErrorDocument 403 /thecart/error404.html
